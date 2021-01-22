@@ -1,0 +1,16 @@
+show databases;
+use aman;
+create table employee11(ID int,NAME varchar(10), DESIGNATION varchar(30),DOB int , ADDRESS varchar(20), SALARY int);
+insert into employee11 values(31275,'Aman','CID Officer',2001,'ABC',100000);
+insert into employee11 values(31209,'Ravi','CIT Officer',2009,'PQR',120000);
+
+insert into employee11 values(31224,'Kiran','PROFESSOR',2003,'XYZ',190000);
+
+insert into employee11 values(31278,'Charlo','ACTOR',2005,'MNO',170000);
+insert into employee11 values(31276,'Andy','Raider',2002,'GHI',160000);
+
+
+select * from employee11;
+desc employee11;
+alter table employee11 drop ADDRESS;
+DELETE FROM employee11 WHERE ID=31224;
