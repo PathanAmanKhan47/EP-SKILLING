@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <title>Registration form</title>
+    <script language="javascript">
+        function validate() {
+            var flag = true;
+            var name = document.forms[0].elements[0].value;
+            var pwd = document.forms[0].elements[1].value;
+            var phno = document.forms[0].elements[2].value;
+            var email = document.forms[0].elements[3].value;
+
+            name_re = new RegExp("^[A-Za-z][a-zA-Z .]+$", "g");
+            pwd_re = new RegExp("^[0-9a-zA-Z]+$", "g");
+            email_re = new RegExp("^[a-zA-Z][\\w_.]+[@][\\w]+[.][a-zA-Z]+$", "g");
+            phno_re = new RegExp("^[\\d]+", "g");
+            Swamy KL, [22.01.21 15:40]
+if (!name.match(name_re)) {
+                alert(" name contains only alphabets only");
+                flag = false;
+                document.forms[0].elements[0].select();
+            }
+            if (name.length < 6) {
+                flag = false;
+                alert("name should contain atleast 6 characters");
+                document.forms[0].elements[0].select();
+            }
+            if (!pwd.match(pwd_re)) {
+                flag = false;
+                alert(" password should contain alphanumerics only");
+                document.forms[0].elements[1].select();
+            }
+            if (pwd.length < 6) {
+                flag = false;
+                alert("password should contain atleast 6 characters");
+                document.forms[0].elements[1].select();
+            }
+            if (!phno.match(phno_re)) {
+                flag = false;
+                alert(" invalid phone number");
+                document.forms[0].elements[2].select();
+            }
+            if (phno.length < 10) {
+                flag = false;
+                alert("phone number should contain 10 digits ");
+                document.forms[0].elements[2].select();
+            }
+            if (!email.match(email_re)) {
+                flag = false;
+                alert(" invalid email");
+                document.forms[0].elements[3].select();
+            }
+            if (flag == true)
+                alert("registration is successful");
+            else
+                alert("registration is faild");
+        }
+    </script>
+</head>
+
+<body bgcolor="orange">
+    <h2 align="center">Registration from</h2>
+    <center>
+        <form name="regform" action="./RegServlet" method="post">
+            <table cellspacing="15">
+                <tr>
+                    <td>NAME</td>
+                    <td><input type="text" name="name" size="25"></td>
+                </tr>
+                <tr>
+                    <td>PASSWORD</td>
+                    <td><input type="password" name="pass" size="25">
+                    </td>
+                </tr>
+                <tr>
+                    <td>PHONE NUMBER</td>
+                    <td><input type="text" maxLength="10" name="phno" size="25"></td>
+                </tr>
+                <tr>
+                    <td>E-MAIL</td>
+                    <td><input type="text" name="email" size="25"> </td>
+                </tr>
+                <tr>
+                    <td>GENDER</td>
+                    <td>male <input type="radio" name="gender" value="male" checked="checked"> female <input
+                            type="radio" name="gender" value="female"></td>
+                </tr>
+                <tr>
+                    <td>DATE OF BIRTH</td>
+                    <td>day<select name="day">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>&nbsp;
+                        month&nbsp;&nbsp; <select name="month">
+                            <option value="jan">jan</option>
+                            <option value="feb">feb</option>
+                        </select>&nbsp;&nbsp;
+                        year<select name="year">
+                            <option value="1990">1990</option>
+                            <option value="1991">1991</option>
+                        </select> </td>
+                </tr>
+                <tr>
+                    <td>LANGUAGES KNOWN</td>
+                    <td>TELUGU&nbsp;&nbsp; <input type="checkbox" name="telugu" value="telugu"><br>ENGLISH <input
+                            type="checkbox" name="english" value="english"><br>HINDI&nbsp; &nbsp;
+                        &nbsp;&nbsp; <input type="checkbox" name="hindi" value="hindi"></td>
+                </tr>
+                <tr>
+                    <td>ADDRESS</td>
+                    <td><textarea rows="3" cols="25" name="address" wrap="soft"></textarea></td>
+                </tr>
+            </table>
+            <br><br>
+<input type="button" align="center" value="Submit" onClick="validate()">&nbsp;<input type="reset"
+                align="center" value="cancel">
+        </form>
+    </center>
+</body>
+
+</html>

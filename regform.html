@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>login form</title>
+    <script language="javascript">
+        function validate() {
+            name = document.forms[0].elements[0].value;
+            pwd = document.forms[0].elements[1].value;
+            name_re = new RegExp("^[A-Za-z][a-zA-Z .]+$", "g");
+            pwd_re = new RegExp("^[0-9a-zA-Z]+$", "g");
+            if (name.match(name_re)) {
+                if (pwd.match(pwd_re)) {
+                    alert("login successful");
+                }
+                else {
+                    alert(" invalid password");
+                    document.forms[0].elements[1].select();
+                }
+            }
+            else {
+                alert("invalid user name");
+                document.forms[0].elements[0].select();
+            }
+        }
+    </script>
+</head>
+
+<body bgcolor="#abcdef">
+    <h3 align="center">login into the site</h3>
+    <form method="post">
+        <table align="center">
+            <tr>
+                <td>name</td>
+                <td><input type="text" name="uname"></td>
+            </tr>
+            <tr>
+                <td>password</td>
+                <td><input type="password" name="pass"></td>
+            </tr>
+            <tr align="center">
+                <td><input type="submit" value=" Submit  " onClick="validate()"></td>
+                <td><input type="reset" value=" reset "></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
